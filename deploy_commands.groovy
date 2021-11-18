@@ -12,7 +12,7 @@ stages{
             sh "aws s3 ls"
             sh "aws s3 ls s3://publicbucke"
             sh "aws s3 ls s3://publicbucke/${BRANCH_NAME}/${BUILD_NUM}"
-            sh "aws s3 ls s3://publicbucke/${BRANCH_NAME}/${BUILD_NUM}/hello-${BUILD_NUM}.war"
+            sh "aws s3 cp s3://publicbucke/${BRANCH_NAME}/${BUILD_NUM}/hello-${BUILD_NUM}.war"
         }
     }
     stage("copying the artifact"){
