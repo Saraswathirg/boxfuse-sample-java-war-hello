@@ -8,13 +8,10 @@ stages{
             checkout([
                 $class:'GitSCM',
                 branches:[[name:'*/master']],
-                doGenerateSubmoduleconfigurations:false,
-                extensions:[],
-                submoduleCfg:[],
                 userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
             ]
             )
-            sh "ls -lart./*"
+            sh "ls -lart ./*"
         }
     }
 stage("building the code using maven clean package"){
