@@ -19,7 +19,7 @@ stages{
         steps{
             println"artifcats copied" 
             sh "ssh -i /tmp/linuxcommands.pem ec2-user@${SERVER_IP} \"system status tomcat\""
-            sh "scp -i /tmp/linuxcommands.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps/"
+            sh "scp -o StrictHostKeyChecking=no -i /tmp/linuxcommands.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps/"
         }
     }
 }
