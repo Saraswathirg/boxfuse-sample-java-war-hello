@@ -1,7 +1,7 @@
 pipeline{
     agent any
-    environment{
-        BRANCH="${env.BRANCH_NAME}"
+    parameters{
+        String(name:'BRANCH_NAME',defaultvalue:'master',description:'Example')
     }
     stages{
         stage("cloning the code"){
@@ -10,7 +10,7 @@ pipeline{
                 sh "ls -l"
                 checkout([
                     $class:'GitSCM',
-                    branches:[[name:'${BRANCH}']],
+                    branches:[[name:'${BRANCH_NAME}']],
                     userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
                 ]
                 )
@@ -27,7 +27,7 @@ pipeline{
         stage("uploading to artifacts"){
             steps{
                 println "here the artifact is moved to s3"
-                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://publicbucke/${BRANCH}/${BUILD_NUMBER}"
+                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://publicbucke/${BRANCH_NAME}/${BUILD_NUMBER}"
             }
         }
     }
