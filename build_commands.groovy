@@ -11,7 +11,7 @@ stages{
                 doGenerateSubmoduleconfigurations:false,
                 extensions:[],
                 submoduleCfg:[],
-                userRemoteConfigs:[https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git]
+                userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
             ]
             )
             sh "ls -lart./*"
