@@ -18,7 +18,7 @@ stages{
     stage("copying the artifact"){
         steps{
             println"artifcats copied" 
-            sh "ssh -i /tmp/linuxcommands.pem ec2-user@${SERVER_IP} \"system status tomcat\""
+            sh "ssh -o StrictHostKeyChecking=no -i /tmp/linuxcommands.pem ec2-user@${SERVER_IP} \"system status tomcat\""
             sh "scp -o StrictHostKeyChecking=no -i /tmp/linuxcommands.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps/"
         }
     }
