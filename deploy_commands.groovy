@@ -12,12 +12,14 @@ stages{
             sh "aws s3 ls"
             sh "aws s3 ls s3://publicbucke"
             sh "aws s3 ls s3://publicbucke/${BRANCH_NAME}/${BUILD_NUM}"
-            sh "aws s3 cp s3://publicbucke/${BRANCH_NAME}/${BUILD_NUM}/hello-${BUILD_NUM}.war"
+            sh "aws s3 cp s3://publicbucke/${BRANCH_NAME}/${BUILD_NUM}/hello-${BUILD_NUM}.war ."
         }
     }
     stage("copying the artifact"){
         steps{
             println"artifcats copied" 
+            sh "ssh -i /tmp/linuxcommands.pem ec2-user@${SERVER_IP} \"system status tomcat\""
+            sh "scp -i /tmp/linuxcommands.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps/"
         }
     }
 }
