@@ -7,7 +7,7 @@ stages{
             sh "ls -l"
             checkout([
                 $class:'GitSCM',
-                branches:[[name:*/master]],
+                branches:[[name:'*/master']],
                 doGenerateSubmoduleconfigurations:false,
                 extensions:[],
                 submoduleCfg:[],
