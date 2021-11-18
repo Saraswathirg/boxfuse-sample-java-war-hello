@@ -6,7 +6,7 @@ pipeline{
                 println"clone added"
             }
         }
-    satge("building code"){
+    stage("building code"){
         steps{
             println"code builded"
         }
