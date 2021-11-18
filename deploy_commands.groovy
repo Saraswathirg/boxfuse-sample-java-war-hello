@@ -3,7 +3,7 @@ pipeline{
     parameters{
     string(name:'BRANCH_NAME',defaultValue:'master')
     string(name:'BRANCH_NUM')
-    string(name:;'SERVER_IP')
+    string(name:'SERVER_IP')
 }
 stages{
     stage("downloading the artifact"){
@@ -17,7 +17,8 @@ stages{
     }
     stage("copying the artifact"){
         steps{
-            print 
+            println"artifcats copied" 
         }
     }
+}
 }
