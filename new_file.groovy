@@ -1,13 +1,13 @@
 pipeline{
     agent any
     stages{
-        stage{
-            steps("adding the code"){
+        stage("adding the code"){
+            steps{
                 println"clone added"
             }
         }
-    satge{
-        steps("building code"){
+    satge("building code"){
+        steps{
             println"code builded"
         }
     }
