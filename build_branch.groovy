@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters{
-        String(name:'BRANCH_NAME',defaultvalue:'master',description:'Example')
+        string(name:'BRANCH_NAME',defaultvalue:'master',description:'Example')        
     }
     stages{
         stage("cloning the code"){
