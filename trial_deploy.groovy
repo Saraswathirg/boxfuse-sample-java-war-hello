@@ -11,7 +11,7 @@ pipeline{
                 sh"""
                 aws s3 ls
                 aws s3 ls s3://buildsteps
-                aws s3 cp s3://buildsteps/${BRANCH_NAME}/${BUILD_NUMBER}/.
+                aws s3 cp s3://buildsteps/${BRANCH_NAME}/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war .
             }
         }
         stage("here the code is copied"){
