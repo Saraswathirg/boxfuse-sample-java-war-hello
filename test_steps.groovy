@@ -10,7 +10,7 @@ pipeline{
             sh "ls -l"
             checkout([
                 $class:'GitSCM',
-                branches:[[name:'BRANCH_NAME']],
+                branches:[[name:'${BRANCH_NAME}']],
                 userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
             ])
         }
@@ -25,7 +25,7 @@ pipeline{
         stage("stored to s3"){
             steps{
                 println"here the artifact is stored to s3"
-                sh "aws s3 cp target/hello-${BUILD-NUMBER}.war s3://alltime/${BRANCH_NAME}/${BUILD_NUMBER}"
+                sh "aws s3 cp target/hello-${BUILD-NUMBER}.war s3://alltime/${BRANCH_NAME}/${BUILD_NUMBER}/"
             }
         }
         stage("download the artifact"){
