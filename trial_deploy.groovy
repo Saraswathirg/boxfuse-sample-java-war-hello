@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters{
-        string(name:'BRANCH_NAME',defaultValue:)
+        string(name:'BRANCH_NAME',defaultValue:'master')
         string(name:'BUILD_NUMBER',defaultValue:'')
     }
     stages{
