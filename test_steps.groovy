@@ -44,7 +44,7 @@ pipeline{
         stage("copy the artifact"){
             steps{
                 println"the artifact is copied"
-                sh "scp -i /tmp/awsaws.pem hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webspps"
+                sh "scp -o StrictHostKeyChecking=no -i /tmp/awsaws.pem hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webspps"
             }
         }
     }
