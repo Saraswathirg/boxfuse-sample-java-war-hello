@@ -15,6 +15,8 @@ pipeline{
         stage("convert the code"){
             steps{
                 println"the code is converted"
+                sh "mvn clean package"
+                sh "ls -l target/*"
             }
         }
         stage("store in to s3"){
