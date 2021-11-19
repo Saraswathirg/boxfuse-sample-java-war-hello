@@ -27,7 +27,7 @@ pipeline{
             steps{
                 println"the artifact is stored"
                 sh "echo $BUILD_NUMBER"
-                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://buildsteps/${BRANCH_NAME}/${BUILD_NUMBER}"
+                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://buildsteps/${BRANCH_NAME}/${BUILD_NUMBER}/"
             }
         }
     }
