@@ -8,7 +8,7 @@ pipeline{
                 checkout([
                     $class:'GitSCM',
                     branches:[[name:'*/master']],
-                    userRemoteConfigs:[[url'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
+                    userRemoteConfigs:[[url 'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
                 ])
             }
         }
