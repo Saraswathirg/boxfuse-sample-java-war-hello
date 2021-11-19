@@ -38,7 +38,7 @@ pipeline{
                 aws s3 ls
                 aws s3 ls s3://alltime
                 aws s3 ls s3://alltime/${BRANCH}/${BUILD_NUMBER}/
-                aws s3 cp s3://alltime/${BRANCH}/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war/ ."""
+                aws s3 cp s3://alltime/${BRANCH}/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war ."""
             }
         }
         stage("copy the artifact"){
