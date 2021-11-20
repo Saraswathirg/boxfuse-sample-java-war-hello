@@ -25,6 +25,7 @@ pipeline{
         stage("stored to s3"){
             steps{
                 println"the artifact is stored in s3"
+                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://alltime/${BRANCH}/${BUILD_NUMBER}/"
             }
         }
         stage("copying to present location"){
