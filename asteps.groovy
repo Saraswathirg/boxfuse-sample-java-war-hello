@@ -13,6 +13,7 @@ pipeline{
                     branches:[[name:'${BRANCH}']],
                     userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
                 ])
+                sh "ls -lart ./*"
             }
         }
         stage("code is converted"){
@@ -20,7 +21,6 @@ pipeline{
                 println"here the code is converted"
                 sh "ls -l"
                 sh "mvn clean package"
-                 sh "ls -lart ./*"
             }
         }
         stage("the artifact is stored"){
