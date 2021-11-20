@@ -2,6 +2,8 @@ pipeline{
     agent any
     parameters{
         string(name:'BRANCH',defaultValue:'master')
+        string(name:'BRANCH_NAME',defaultValue:'')
+        string(name:'BUILD_NUMBER',defaultValue:'')
     }
     stages{
         stage("clone the code"){
@@ -31,6 +33,11 @@ pipeline{
         stage("copying to present location"){
             steps{
                 println "the artifactis copied"
+                sh"""
+                aws s3 ls
+                aws s3 ls s3://alltime
+                aws s3 ls s3://alltime/${BRANCH_NAME}/${BUILD_NUMBER}/
+                aws s3 cp s3://alltime/${BRANCH_NAME}/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war ."""
             }
         }
         stage(" the artifact is downloaded"){
