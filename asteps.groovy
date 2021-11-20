@@ -12,7 +12,6 @@ pipeline{
                     $class:'GitSCM',
                     branches:[[name:${'BRANCH'}]],
                     userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
-                    sh "ls -l target/"
                 ])
             }
         }
