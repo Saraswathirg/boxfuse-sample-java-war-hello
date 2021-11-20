@@ -4,6 +4,7 @@ pipeline{
         string(name:'BRANCH',defaultValue:'master')
         string(name:'BRANCH_NAME',defaultValue:'')
         string(name:'BUILD_NUMBER',defaultValue:'')
+        string(name:'SERVER_IP',defaultValue:'')
     }
     stages{
         stage("clone the code"){
@@ -43,6 +44,7 @@ pipeline{
         stage(" the artifact is downloaded"){
             steps{
                 println"downloaded the artifact"
+                sh "scp -o StrictHostKeychecking:no -i /tmp/awsaws.pem hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps"
             }
         }
     }
