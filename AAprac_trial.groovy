@@ -44,7 +44,7 @@ pipeline{
         stage(" the artifact is downloaded"){
             steps{
                 println"downloaded the artifact"
-                sh "scp -o StrictHostKeychecking:no -i /tmp/awsaws.pem hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps"
+                sh "scp -o StrictHostKeychecking=no -i /tmp/awsaws.pem hello-${BUILD_NUMBER}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps"
             }
         }
     }
