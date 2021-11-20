@@ -18,6 +18,8 @@ pipeline{
         stage("build the code"){
             steps{
                 println"the code is built"
+                sh "ls -lart ./*"
+                sh "mvn clean package"
             }
         }
         stage("stored to s3"){
