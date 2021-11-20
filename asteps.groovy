@@ -19,8 +19,8 @@ pipeline{
             steps{
                 println"here the code is converted"
                 sh "ls -l"
-                sh "ls -lart ./*"
                 sh "mvn clean package"
+                 sh "ls -lart ./*"
             }
         }
         stage("the artifact is stored"){
