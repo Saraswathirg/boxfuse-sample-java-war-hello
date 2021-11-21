@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment{
         BRANCH ="master"
+        BUILD_NUMBER = "${env.BUILD_NUMBER}"
     }
     stages{
         stage("checkout code"){
