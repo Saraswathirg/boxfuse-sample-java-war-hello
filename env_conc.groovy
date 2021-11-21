@@ -10,11 +10,13 @@ pipeline{
                 println "Branch Name ${BRANCH_NAME}"
                 println "Branch Name ${env.BRANCH_NAME}"
                 sh "ls -l"
-                checkout([
+                /*checkout([
                     $class:'GitSCM',
                     branches:[[name:'${env.BRANCH_NAME}']],
                     userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
-                ])
+                ])*/
+                git branch:"${env.BRANCH_NAME}",
+                url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git'
             }
         }
         stage("build the code"){
