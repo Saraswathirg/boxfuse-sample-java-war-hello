@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        BRANCH_NAME ="master"
+        BRANCH_Name ="somu"
     }
     stages{
         stage("checkout code"){
