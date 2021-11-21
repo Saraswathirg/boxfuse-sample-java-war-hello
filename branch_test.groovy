@@ -39,7 +39,7 @@ pipeline{
         stage("copy the file"){
             steps{
                 println"file copied"
-                sh "aws s3 scp -o strictHostKeychecking=no -i /tmp/awsaws.pem target/hello-${BUILD_NUMBER} ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps"
+                sh "scp -o strictHostKeychecking=no -i /tmp/awsaws.pem target/hello-${BUILD_NUMBER} ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps"
             }
         }
     }
