@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        BRANCH='${env.BRANCH}'
+        BRANCH="${env.BRANCH}"
     }
     stages{
         stage("checkout code"){
