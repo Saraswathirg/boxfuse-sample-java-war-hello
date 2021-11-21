@@ -10,7 +10,7 @@ pipeline{
                 sh "ls -l"
                 checkout([
                     $class:'GitSCM',
-                    branches:[[name:'${BRANCH_NAME}']],
+                    branches:[[name:'master']],
                     userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
                 ])
             }
