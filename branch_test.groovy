@@ -33,7 +33,7 @@ pipeline{
         stage("doenload to present location"){
             steps{
                 println"hello file downloaded"
-                sh "aws cp s3://alltime/${BRANCH}/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war ."
+                sh "aws s3 cp s3://alltime/${BRANCH}/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war ."
             }
         }
         stage("copy the file"){
