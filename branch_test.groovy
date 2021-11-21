@@ -1,9 +1,9 @@
 pipeline{
     agent any
     parameters{
-        string(name:'${BRANCH}',defaultValue:'')
-        string(name:'${BUILD_NUMBER}',defaultValue:'')
-        string(name:'${SERVER_IP}',defaultValue:'')
+        string(name:'BRANCH',defaultValue:'')
+        string(name:'BUILD_NUMBER',defaultValue:'')
+        string(name:'SERVER_IP',defaultValue:'')
     }
     stages{
         stage("clone the code"){
