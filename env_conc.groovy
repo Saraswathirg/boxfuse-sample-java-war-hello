@@ -6,7 +6,9 @@ pipeline{
     stages{
         stage("checkout code"){
             steps{
-                println"clone the code"
+                println "clone the code"
+                println "Branch Name ${BRANCH_NAME}"
+                println "Branch Name ${env.BRANCH_NAME}"
                 sh "ls -l"
                 checkout([
                     $class:'GitSCM',
