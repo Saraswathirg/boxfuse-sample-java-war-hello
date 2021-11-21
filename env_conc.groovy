@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        BRANCH ="master"
+        BRANCH_NAME ="master"
     }
     stages{
         stage("checkout code"){
@@ -10,7 +10,7 @@ pipeline{
                 sh "ls -l"
                 checkout([
                     $class:'GitSCM',
-                    branches:[[name:'${BRANCH}']],
+                    branches:[[name:'${BRANCH_NAME}']],
                     userRemoteConfigs:[[url:'https://github.com/Saraswathirg/boxfuse-sample-java-war-hello.git']]
                 ])
             }
@@ -25,7 +25,7 @@ pipeline{
         stage("upload to s3"){
             steps{
                 println"uploaded"
-                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://alltime/${BRANCH}/${BUILD_NUMBER}/"
+                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://alltime/${BRANCH_NAME}/${BUILD_NUMBER}/"
             }
         }
     }
